@@ -1,21 +1,21 @@
-<template lang="pug">
-  div
-    .screen
-      .logo ChartFun
-      .desc 一站式数据大屏制作平台
-      transition(name="slide-fade")
-        .login-box(v-if="show")
-          .radio-group
-            .radio-btn(:class="{active: tab == 'login'}" @click="tab = 'login'") 登录
-            .radio-btn(:class="{active: tab == 'reg'}" @click="tab = 'reg'") 注册
-          el-input(placeholder="请输入用户名" v-model="form.user")
-          el-input(
-            placeholder="请输入密码"
-            :type="tab == 'login' ? 'password' : 'text'"
-            v-model="form.password"
-            style="margin-top: 10px;")
-      .btn-wrapper
-        span.btn(@click="handleClick") 进入系统
+<template>
+  <div>
+    <div class="screen">
+      <div class="logo">ChartFun</div>
+      <div class="desc">一站式数据大屏制作平台</div>
+      <transition name="slide-fade">
+        <div class="login-box" v-if="show">
+          <div class="radio-group">
+            <div class="radio-btn" :class="{active: tab == 'login'}" @click="tab = 'login'">登录</div>
+            <div class="radio-btn" :class="{active: tab == 'reg'}" @click="tab = 'reg'">注册</div>
+          </div>
+          <el-input placeholder="请输入用户名" v-model="form.user"></el-input>
+          <el-input placeholder="请输入密码" :type="tab == 'login' ? 'password' : 'text'" v-model="form.password" style="margin-top: 10px;"></el-input>
+        </div>
+      </transition>
+      <div class="btn-wrapper"><span class="btn" @click="handleClick">进入系统</span></div>
+    </div>
+  </div>
 </template>
 
 <script>
