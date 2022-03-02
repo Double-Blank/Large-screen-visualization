@@ -46,7 +46,8 @@
           <el-col :span="24">
             <el-upload
               class="bg-uploader"
-              action="http://localhost:3000/api/uploadfile/"
+              :action="postURL"
+              :data="qiniuData"
               :show-file-list="false"
               :on-success="handleScreenBgUploadSuccess"
               :before-upload="beforeUpload"
@@ -383,7 +384,8 @@
           <div class="title">上传图片</div>
           <el-upload
             class="bg-uploader"
-            action="http://localhost:3000/api/uploadimg/"
+            :action="postURL"
+            :data="{ qiniuToken }"
             :show-file-list="false"
             :on-success="handleImageUploadSuccess"
             :before-upload="beforeUpload"
@@ -473,6 +475,14 @@ export default {
       },
       thisKey: "general",
       connectList: [],
+
+      postURL: 'https://upload-z2.qiniup.com/',
+      qiniuData: {
+        key: "",
+        token: ""
+      },
+      qiniuToken: "",
+      upload_qiniu_addr: "http://qn.aixshi.top/",
     };
   },
   computed: {
@@ -486,6 +496,9 @@ export default {
       return JSON.stringify(this.$parent.currentElement, null, 2);
     },
   },
+  created() {
+    this.getQiniuToken()
+  },
   mounted() {
     this.$http
       .get("/connect?uid=" + this.user.uid)
@@ -498,13 +511,28 @@ export default {
       .catch(() => {});
   },
   methods: {
+    async getQiniuToken() {
+      await this.$http.get('/api/qiniu/token').then((res) => {
+        this.qiniuToken = res.data.token.trim();
+        console.log('qiniuToken',this.qiniuToken)
+        this.qiniuData.token = res.data.token.trim();
+      }).catch((err) => {
+        console.log(err);
+      });
+    },
     handleScreenBgUploadSuccess(res, file) {
       // console.log(res);
-      this.chartData.bgimage = res.url;
+      // * this.chartData.bgimage = res.url;
+      // * console.log(this.chartData.bgimage)
       // console.log(file);
       // this.imageUrl = URL.createObjectURL(file.raw);
+      this.chartData.bgimage = this.upload_qiniu_addr + res.key;
+      console.log(this.imageUrl);
     },
+
     beforeUpload(file) {
+      this.qiniuData.key = file.name
+      console.log(this.qiniuData)
       const isPic = file.type === "image/jpeg" || file.type === "image/png";
       const isLt4M = file.size / 1024 / 1024 < 4;
 
@@ -523,9 +551,11 @@ export default {
       this.$parent.generateData(this.currentElement);
     },
     handleImageUploadSuccess(res, file) {
-      console.log(res);
-      this.currentElement.data.datacon.img = res.url;
-      console.log(file);
+      // this.imageUrl = this.upload_qiniu_addr + res.key;
+      console.log("跳转"+this.imageUrl);
+      // console.log(res);
+      this.currentElement.data.datacon.img = this.upload_qiniu_addr + res.key;;
+      // console.log(file);
       this.imageUrl = URL.createObjectURL(file.raw);
     },
   },

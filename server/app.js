@@ -9,6 +9,7 @@ const koaStatic = require('koa-static');
 
 // 路由文件
 const apiRouter = require('./routes/api');
+// const qiniuRouter = require('./routes/qiniu');
 const userRouter = require('./routes/user');
 const chartRouter = require('./routes/chart');
 const connectRouter = require('./routes/connect');
@@ -47,6 +48,7 @@ router.get('/', (ctx, next) => {
 });
 
 app.use(apiRouter.routes()).use(apiRouter.allowedMethods());
+// app.use(qiniuRouter.routes()).use(qiniuRouter.allowedMethods());
 app.use(userRouter.routes()).use(userRouter.allowedMethods());
 app.use(chartRouter.routes()).use(chartRouter.allowedMethods());
 app.use(connectRouter.routes()).use(connectRouter.allowedMethods());
