@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="screen">
-      <div class="logo">ChartFun</div>
+      <div class="logo">Edit Screen</div>
       <div class="desc">一站式数据大屏制作平台</div>
       <transition name="slide-fade">
         <div class="login-box" v-if="show">

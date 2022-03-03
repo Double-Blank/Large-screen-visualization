@@ -12,7 +12,7 @@ const router = new Router({
       name: 'index',
       component: () => import('./views/Index.vue'),
       meta: {
-        title: 'ChartFun | 一站式数据大屏制作平台',
+        title: 'Edit Screen | 一站式数据大屏制作平台',
       },
     },
     {
@@ -64,7 +64,7 @@ const router = new Router({
       name: 'view',
       component: () => import('./views/Viewer/Canvas.vue'),
       meta: {
-        title: '大屏查看 | ChartFun',
+        title: '大屏查看 | editor',
       },
     },
   ],
