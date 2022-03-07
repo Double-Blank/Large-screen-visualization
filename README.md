@@ -4,6 +4,13 @@ Data visualization for large screen.The visual dashboard design with large scree
 # 可编辑大屏幕的数据可视化
 大屏幕的数据可视化。以大屏幕为主要显示载体的可视化仪表盘设计被称为大屏幕的数据可视化。它的特点是面积大，动态效果酷，色彩丰富。大屏幕仪表盘可用于信息显示、数据分析、监测和预警。
 
+# 预览
+
+![image.png](http://qn.aixshi.top/largeScreenPre/1.png)
+![image.png](http://qn.aixshi.top/largeScreenPre/2.png)
+![image.png](http://qn.aixshi.top/largeScreenPre/3.png)
+
+
 # 前端部分
 
 > A Vue.js project
