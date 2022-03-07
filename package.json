@@ -59,7 +59,13 @@
       "@vue/airbnb"
     ],
     "rules": {
-      "max-len": [1, { "code": 300 }]
+      "linebreak-style": ["error", "windows"],
+      "max-len": [
+        1,
+        {
+          "code": 300
+        }
+      ]
     },
     "parserOptions": {
       "parser": "babel-eslint"
