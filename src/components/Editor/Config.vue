@@ -381,11 +381,11 @@
         v-show="thisKey=='data' &amp;&amp; currentElement.data.type == 'image'"
       >
         <div class="config-box">
-          <div class="title">上传图片</div>
+          <div class="title">上传图片test</div>
           <el-upload
             class="bg-uploader"
             :action="postURL"
-            :data="{ qiniuToken }"
+            :data="qiniuData"
             :show-file-list="false"
             :on-success="handleImageUploadSuccess"
             :before-upload="beforeUpload"
@@ -416,7 +416,7 @@
           </el-row>
         </div>
         <div class="config-box">
-          <div class="title">透明度</div>
+          <div class="title">图片透明度</div>
           <el-slider
             v-model="currentElement.data.datacon.opacity"
             :max="1"
