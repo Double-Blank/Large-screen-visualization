@@ -1,26 +1,34 @@
-<template lang="pug">
-  div
-    el-row(:gutter="20")
-      el-col(:span="12")
-        el-form(:model="form" :rules="rules" ref="ruleForm" label-width="100px" :hide-required-asterisk="true")
-          el-form-item(label="名称" prop="name")
-            el-input(v-model="form.name" placeholder="请输入数据源名称" style="width:220px;")
-          el-form-item(label="数据文件")
-            el-upload(class="upload" ref="fileUpload" drag action="/" :on-change="importExcel" :on-exceed="onFileExceed" :on-remove="onFileRemove" :auto-upload="false" :limit="1")
-              i.el-icon-upload
-              .el-upload__text 将文件拖到此处，或<em>点击上传</em>
-              .el-upload__tip(slot="tip") 请上传 Excel 表格文件，其中第一行为表头
-          el-form-item(label="选择维度" prop="dimension")
-            el-select(v-model="form.dimension" placeholder="请选择" @change="form.metrics = []")
-              el-option(v-for="item in form.columnsRaw" :label="item" :value="item")
-          el-form-item(label="选择指标" prop="metrics")
-            el-checkbox-group(v-model="form.metrics")
-              el-checkbox(
-                v-for="item in form.columnsRaw"
-                :label="item"
-                :disabled="item == form.dimension")
-          el-form-item
-            el-button(type="primary" @click="onSubmit('ruleForm')") 提交
+<template>
+<div>
+  <el-row :gutter="20">
+    <el-col :span="12">
+      <el-form :model="form" :rules="rules" ref="ruleForm" label-width="100px" :hide-required-asterisk="true">
+        <el-form-item label="名称" prop="name">
+          <el-input v-model="form.name" placeholder="请输入数据源名称" style="width:220px;"></el-input>
+        </el-form-item>
+        <el-form-item label="数据文件">
+          <el-upload class="upload" ref="fileUpload" drag action="/" :on-change="importExcel" :on-exceed="onFileExceed" :on-remove="onFileRemove" :auto-upload="false" :limit="1"><i class="el-icon-upload"></i>
+            <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+            <div class="el-upload__tip" slot="tip">请上传 Excel 表格文件，其中第一行为表头</div>
+          </el-upload>
+        </el-form-item>
+        <el-form-item label="选择维度" prop="dimension">
+          <el-select v-model="form.dimension" placeholder="请选择" @change="form.metrics = []">
+            <el-option v-for="item in form.columnsRaw" :label="item" :value="item" :key="item"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="选择指标" prop="metrics">
+          <el-checkbox-group v-model="form.metrics">
+            <el-checkbox v-for="item in form.columnsRaw" :label="item" :disabled="item == form.dimension" :key="item"></el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="onSubmit('ruleForm')">提交</el-button>
+        </el-form-item>
+      </el-form>
+    </el-col>
+  </el-row>
+</div>
 </template>
 
 <script>

@@ -514,20 +514,13 @@ export default {
     async getQiniuToken() {
       await this.$http.get('/api/qiniu/token').then((res) => {
         this.qiniuToken = res.data.token.trim();
-        console.log('qiniuToken',this.qiniuToken)
         this.qiniuData.token = res.data.token.trim();
       }).catch((err) => {
         console.log(err);
       });
     },
     handleScreenBgUploadSuccess(res, file) {
-      // console.log(res);
-      // * this.chartData.bgimage = res.url;
-      // * console.log(this.chartData.bgimage)
-      // console.log(file);
-      // this.imageUrl = URL.createObjectURL(file.raw);
       this.chartData.bgimage = this.upload_qiniu_addr + res.key;
-      console.log(this.imageUrl);
     },
 
     beforeUpload(file) {
@@ -550,13 +543,8 @@ export default {
     handleChartDataChange() {
       this.$parent.generateData(this.currentElement);
     },
-    handleImageUploadSuccess(res, file) {
-      // this.imageUrl = this.upload_qiniu_addr + res.key;
-      console.log("跳转"+this.imageUrl);
-      // console.log(res);
-      this.currentElement.data.datacon.img = this.upload_qiniu_addr + res.key;;
-      // console.log(file);
-      this.imageUrl = URL.createObjectURL(file.raw);
+    handleImageUploadSuccess(res) {
+      this.currentElement.data.datacon.img = this.upload_qiniu_addr + res.key;
     },
   },
 };

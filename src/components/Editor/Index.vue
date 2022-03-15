@@ -1,15 +1,21 @@
-<template lang="pug">
-  .editor-view
-    .topbar-view
-      Topbar
-    .toolbar-view(v-show="!preview")
-      Toolbar
-    .config-view(v-show="!preview")
-      Config
-    .scale-view(:class="{preview: preview}")
-      ScaleBar(@update:scale="changeScale")
-    .main-view
-      router-view(:scale="scale" ref="screenContainer")
+<template>
+  <div class="editor-view">
+    <div class="topbar-view">
+      <Topbar></Topbar>
+    </div>
+    <div class="toolbar-view" v-show="!preview">
+      <Toolbar></Toolbar>
+    </div>
+    <div class="config-view" v-show="!preview">
+      <Config></Config>
+    </div>
+    <div class="scale-view" :class="{preview: preview}">
+      <ScaleBar @update:scale="changeScale"></ScaleBar>
+    </div>
+    <div class="main-view">
+      <router-view :scale="scale" ref="screenContainer"></router-view>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -133,9 +139,13 @@ export default {
       return new Promise(function(resolve, reject) {
         let screenRef = that.$refs['screenContainer'].$refs['screen'];
         html2canvas(screenRef, {
-          backgroundColor: '#142E48'
+          allowTaint: true,
+          useCORS: true,
+          // backgroundColor: null
+          // backgroundColor: '#142E48'
         }).then((canvas) => {
           let dataURL = canvas.toDataURL("image/png");
+          // console.log(dataURL)
           resolve(dataURL);
         })
       })
