@@ -77,7 +77,7 @@ export default {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background: url('../assets/img/bg.png');
+  background: url('http://qn.aixshi.top/largeScreenPre/bg.png');
   background-position: 50%;
   background-size: cover;
   background-repeat: no-repeat;
