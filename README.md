@@ -44,3 +44,6 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ```bash
 node ./server/app.js
 ```
+
+node 云位置 cd /home/project/server
+mongo 位置 /usr/local/mongod5
