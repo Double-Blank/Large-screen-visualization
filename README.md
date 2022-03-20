@@ -4,11 +4,69 @@ Data visualization for large screen.The visual dashboard design with large scree
 # 可编辑大屏幕的数据可视化
 大屏幕的数据可视化。以大屏幕为主要显示载体的可视化仪表盘设计被称为大屏幕的数据可视化。它的特点是面积大，动态效果酷，色彩丰富。大屏幕仪表盘可用于信息显示、数据分析、监测和预警。
 
-# 预览
+## 主要功能使用说明
 
-![image.png](http://qn.aixshi.top/largeScreenPre/1.png)
-![image.png](http://qn.aixshi.top/largeScreenPre/2.png)
-![image.png](http://qn.aixshi.top/largeScreenPre/3.png)
+🎈登录注册注销等操作不予展示，请自行体验
+
+### 新建大屏项目
+
+![large-1](./screenshot/show/large-1.png)
+
+![large-2](./screenshot/show/large-2.png)
+
+点击确定进入大屏编辑界面
+
+### 编辑大屏
+
+![large-3](./screenshot/show/large-3.png)
+
+屏幕左方是图层控制区，中间是展示区域，右侧是详细设置
+
+![large-4](./screenshot/show/large-4.png)
+
+![large-5](./screenshot/show/large-5.png)
+
+右侧可以选择项目背景图片进行上传
+
+![large-6](./screenshot/show/large-6.png)
+
+左侧选择需要展示的图表类型，点选当前图层，可以设置透明度
+
+![large-7](./screenshot/show/large-7.png)
+
+![large-8](./screenshot/show/large-8.png)
+
+左侧可编辑文本
+
+![large-9](./screenshot/show/large-9.png)
+
+上传图片
+
+![large-10](./screenshot/show/large-10.png)
+
+为图表添加边框
+
+### 数据源
+
+数据管理列可新增数据源
+
+![large-11](./screenshot/show/large-11.png)
+
+点击新增数据源可添加excel表格等数据
+
+![large-12](./screenshot/show/large-12.png)
+
+### 保存发布
+
+![large-13](./screenshot/show/large-13.png)
+
+### 分享
+
+复制网页URL即可让所有人查看
+
+![large-14](./screenshot/show/large-14.png)
+
+![large-15](./screenshot/show/large-15.png)
 
 
 # 前端部分
@@ -47,7 +105,12 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 准备工作：配置并运行 MongoDB 数据库，新建一个空数据库并命名为chartfun。无需手动配置表结构，它们会被自动创建。
 
 ## Run web-service
-
 ```bash
-node ./server/app.js
+cd ./server
+# install
+npm install
+# then 
+node app.js
+# if you have nodemon please use
+nodemon app.js
 ```
