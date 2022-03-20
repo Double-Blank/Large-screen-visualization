@@ -40,7 +40,9 @@ const router = new Router();
 app.use(koaStatic(
   path.join(__dirname, './public')
 ))
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
 
 router.get('/', (ctx, next) => {
   // ctx.router available
