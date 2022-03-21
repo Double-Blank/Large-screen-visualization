@@ -3,7 +3,7 @@ const Router = require('koa-router');
 const chartModel = require('../models/chart');
 
 const router = new Router();
-router.prefix('/chart');
+router.prefix('/api/chart');
 
 // 获取全部实例列表
 router.get('/', async (ctx, next) => {

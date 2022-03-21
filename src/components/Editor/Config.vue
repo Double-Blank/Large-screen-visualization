@@ -512,7 +512,7 @@ export default {
   },
   methods: {
     async getQiniuToken() {
-      await this.$http.get('/api/qiniu/token').then((res) => {
+      await this.$http.get('/qiniu/token').then((res) => {
         this.qiniuToken = res.data.token.trim();
         this.qiniuData.token = res.data.token.trim();
       }).catch((err) => {
@@ -525,7 +525,7 @@ export default {
 
     beforeUpload(file) {
       this.qiniuData.key = file.name
-      console.log(this.qiniuData)
+      // console.log(this.qiniuData)
       const isPic = file.type === "image/jpeg" || file.type === "image/png";
       const isLt4M = file.size / 1024 / 1024 < 4;
 

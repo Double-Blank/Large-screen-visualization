@@ -27,8 +27,8 @@ const instance = axios.create({
 });
 
 // 请求地址
-instance.defaults.baseURL = 'http://aixshi.top:3000';
-// instance.defaults.baseURL = 'http://localhost:3000';
+// instance.defaults.baseURL = 'http://aixshi.top:3000';
+instance.defaults.baseURL = 'http://localhost:3000/api';
 
 // 设置post请求头
 // instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
