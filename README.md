@@ -47,3 +47,5 @@ node ./server/app.js
 
 node 云位置 cd /home/project/server
 mongo 位置 /usr/local/mongod5
+nginx 位置 /etc/nginx/sites-enabled 备份 6-temp/server/nginx
+     www 位置 
