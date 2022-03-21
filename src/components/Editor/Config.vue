@@ -525,7 +525,7 @@ export default {
 
     beforeUpload(file) {
       this.qiniuData.key = file.name
-      console.log(this.qiniuData)
+      // console.log(this.qiniuData)
       const isPic = file.type === "image/jpeg" || file.type === "image/png";
       const isLt4M = file.size / 1024 / 1024 < 4;
 
