@@ -3,7 +3,7 @@ const Router = require('koa-router');
 const connectModel = require('../models/connect');
 
 const router = new Router();
-router.prefix('/connect');
+router.prefix('/api/connect');
 
 // 获取全部数据源列表
 router.get('/', async (ctx, next) => {

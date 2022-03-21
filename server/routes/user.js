@@ -3,7 +3,7 @@ const Router = require('koa-router');
 const userModel = require('../models/user');
 
 const router = new Router();
-router.prefix('/user');
+router.prefix('/api/user');
 
 router.post('/login', async (ctx, next) => {
   const body = ctx.request.body;

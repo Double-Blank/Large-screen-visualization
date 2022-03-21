@@ -3,7 +3,7 @@ const Router = require('koa-router');
 const chartModel = require('../models/chart');
 
 const router = new Router();
-router.prefix('/demo');
+router.prefix('/api/demo');
 
 // 返回一个随机
 router.get('/percent', async (ctx, next) => {

@@ -512,7 +512,7 @@ export default {
   },
   methods: {
     async getQiniuToken() {
-      await this.$http.get('/api/qiniu/token').then((res) => {
+      await this.$http.get('/qiniu/token').then((res) => {
         this.qiniuToken = res.data.token.trim();
         this.qiniuData.token = res.data.token.trim();
       }).catch((err) => {
