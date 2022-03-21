@@ -86,7 +86,7 @@ export default {
               center: true
             })
             .then(() => {
-              console.log(this.newData);
+              // console.log(this.newData);
               this.$http
                 .post('/connect/', {
                   name: this.form.name,
