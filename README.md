@@ -1,8 +1,8 @@
-# Large-screen-visualization
-Data visualization for large screen.The visual dashboard design with large screen as the main display carrier is called data visualization for large screen. It features large areas, cool dynamic effects and rich colors. The dashboard for large screen can be used for information display, data analysis, monitoring and early warning.
-
 # 可编辑大屏幕的数据可视化
 大屏幕的数据可视化。以大屏幕为主要显示载体的可视化仪表盘设计被称为大屏幕的数据可视化。它的特点是面积大，动态效果酷，色彩丰富。大屏幕仪表盘可用于信息显示、数据分析、监测和预警。
+
+# Large-screen-visualization
+Data visualization for large screen.The visual dashboard design with large screen as the main display carrier is called data visualization for large screen. It features large areas, cool dynamic effects and rich colors. The dashboard for large screen can be used for information display, data analysis, monitoring and early warning.
 
 ## 主要功能使用说明
 
